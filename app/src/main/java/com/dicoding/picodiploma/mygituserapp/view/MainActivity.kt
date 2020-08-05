@@ -1,12 +1,13 @@
-package com.dicoding.picodiploma.mygituserapp
+package com.dicoding.picodiploma.mygituserapp.view
 
 import android.app.SearchManager
 import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
-import android.widget.SearchView
 import android.widget.Toast
+import androidx.appcompat.widget.SearchView
+import com.dicoding.picodiploma.mygituserapp.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

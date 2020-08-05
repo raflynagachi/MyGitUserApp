@@ -60,7 +60,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="10dp"
-            android:text="@string/count_repository"
+            android:text="@string/repository"
             android:background="@drawable/bg_tv_repo"
             app:layout_constraintStart_toEndOf="@+id/circleImageView2"
             app:layout_constraintTop_toBottomOf="@+id/tv_username" />
@@ -71,7 +71,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="4dp"
-            android:text="@string/count_follower"
+            android:text="@string/follower"
             android:background="@drawable/bg_tv_follower"
             app:layout_constraintStart_toEndOf="@+id/circleImageView2"
             app:layout_constraintTop_toBottomOf="@+id/tv_repository" />
@@ -82,7 +82,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="4dp"
-            android:text="@string/count_following"
+            android:text="@string/following"
             android:background="@drawable/bg_tv_following"
             app:layout_constraintStart_toEndOf="@+id/tv_follower"
             app:layout_constraintTop_toBottomOf="@+id/tv_repository" />
