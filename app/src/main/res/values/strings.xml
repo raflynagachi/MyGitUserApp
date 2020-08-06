@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MyGitUserApp</string>
+    <string name="search">cari</string>
+    <string name="search_hint">cari user…</string>
+    <string name="fullname">nama lengkap</string>
+    <string name="username">username</string>
+    <string name="repository">%s repositori</string>
+    <string name="follower">%s pengikut</string>
+    <string name="following">%s mengikuti</string>
+    <string name="location">lokasi</string>
+    <string name="company">perusahaan</string>
+    <string name="at">\@%s</string>
+    <string name="change_language_settings">Ganti Bahasa</string>
+</resources>

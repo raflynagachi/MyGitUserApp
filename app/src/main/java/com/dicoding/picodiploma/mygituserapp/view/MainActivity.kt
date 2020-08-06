@@ -54,6 +54,13 @@ class MainActivity : AppCompatActivity() {
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
             override fun onQueryTextSubmit(query: String?): Boolean {
                 Toast.makeText(this@MainActivity, query, Toast.LENGTH_SHORT).show()
+                if (query!!.isNotEmpty()) {
+                    listDataUser.clear()
+                    viewConfig()
+                    mainViewModel.getDataUserSearch(query, applicationContext)
+                    showLoading(true)
+                    configMainViewModel(listAdapter)
+                }
                 return true
             }
 
