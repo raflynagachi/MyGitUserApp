@@ -1,5 +1,6 @@
 package com.dicoding.picodiploma.mygituserapp.viewmodel
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,6 +9,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.dicoding.picodiploma.mygituserapp.R
 import com.dicoding.picodiploma.mygituserapp.model.User
+import com.dicoding.picodiploma.mygituserapp.view.DetailActivity
 import kotlinx.android.synthetic.main.card_item.view.*
 
 class ListUserAdapter(private val listUser: ArrayList<User>) : RecyclerView.Adapter<ListUserAdapter.ListViewHolder>() {
@@ -30,7 +32,24 @@ class ListUserAdapter(private val listUser: ArrayList<User>) : RecyclerView.Adap
     override fun onBindViewHolder(holder: ListViewHolder, position: Int) {
         holder.bind(listUser[position])
         //setIntent here
+        val data = listUser[position]
+        holder.itemView.setOnClickListener {
+            val dataUserIntent = User(
+                data.fullname,
+                data.username,
+                data.avatar,
+                data.company,
+                data.location,
+                data.repository,
+                data.follower,
+                data.following
+            )
+            val mIntent = Intent(it.context, DetailActivity::class.java)
+            mIntent.putExtra(DetailActivity.EXTRA_DETAIL, dataUserIntent)
+            it.context.startActivity(mIntent)
+        }
     }
+
     inner class ListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(user: User){
             with(itemView){

@@ -10,25 +10,24 @@ import com.androidnetworking.AndroidNetworking
 import com.androidnetworking.error.ANError
 import com.androidnetworking.interfaces.JSONArrayRequestListener
 import com.androidnetworking.interfaces.JSONObjectRequestListener
-import com.dicoding.picodiploma.mygituserapp.model.User
+import com.dicoding.picodiploma.mygituserapp.model.Follower
 import org.json.JSONArray
 import org.json.JSONObject
 
-class UserViewModel: ViewModel() {
-
+class FollowerViewModel : ViewModel(){
     companion object{
-        val TAG = UserViewModel::class.java.simpleName
+        val TAG = FollowerViewModel::class.java.simpleName
     }
 
-    private val listUserMutable = MutableLiveData<ArrayList<User>>()
-    private val listUserNonMutable = ArrayList<User>()
+    private val listUserMutable = MutableLiveData<ArrayList<Follower>>()
+    private val listUserNonMutable = ArrayList<Follower>()
 
-    fun getListUser(): LiveData<ArrayList<User>>{
+    fun getListUser(): LiveData<ArrayList<Follower>> {
         return listUserMutable
     }
 
-    fun getDataUser(context: Context){
-        AndroidNetworking.get("https://api.github.com/users")
+    fun getDataUser(context: Context, id: String){
+        AndroidNetworking.get("https://api.github.com/users/$id/followers")
             .addHeaders("Authorization", "5fc0d6c7685604066e7e40b8706d6e9b108a97ff")
             .build()
             .getAsJSONArray(object : JSONArrayRequestListener {
@@ -37,44 +36,6 @@ class UserViewModel: ViewModel() {
                     try {
                         for (i in 0 until response.length()){
                             val username = response.getJSONObject(i).getString("login")
-                            getDataUserDetail(username, context)
-                        }
-                    }catch (e: Exception){
-                        Toast.makeText(context, e.message, Toast.LENGTH_SHORT).show()
-                        e.printStackTrace()
-                    }
-                }
-
-                override fun onError(error: ANError?) {
-                    if (error?.errorCode != 0) {
-                        // received error from server
-                        // error.getErrorCode() - the error code from server
-                        // error.getErrorBody() - the error body from server
-                        // error.getErrorDetail() - just an error detail
-                        Log.d(TAG, "onError errorCode : " + error?.errorCode)
-                        Log.d(TAG, "onError errorBody : " + error?.errorBody)
-                        Log.d(TAG, "onError errorDetail : " + error?.errorDetail)
-                    } else {
-                        // error.getErrorDetail() : connectionError, parseError, requestCancelledError
-                        Log.d(TAG, "onError errorDetail : " + error.errorDetail)
-                    }
-                    Toast.makeText(context, error?.message, Toast.LENGTH_SHORT).show()
-                }
-            })
-    }
-
-    fun getDataUserSearch(query: String,context: Context){
-        AndroidNetworking.get("https://api.github.com/users?q=$query")
-            .addHeaders("Authorization", "5fc0d6c7685604066e7e40b8706d6e9b108a97ff")
-            .build()
-            .getAsJSONObject(object : JSONObjectRequestListener {
-                override fun onResponse(response: JSONObject) {
-                    Log.d(TAG, response.toString())
-                    try {
-                        listUserNonMutable.clear()
-                        val jsonArray = response.getJSONArray("items")
-                        for (i in 0 until jsonArray.length()){
-                            val username = jsonArray.getJSONObject(i).getString("login")
                             getDataUserDetail(username, context)
                         }
                     }catch (e: Exception){
@@ -110,7 +71,7 @@ class UserViewModel: ViewModel() {
                     Log.d(TAG, response.toString())
                     try {
                         val jsonObject = response
-                        val userData = User()
+                        val userData = Follower()
                         userData.username = jsonObject.getString("login")
                         userData.fullname = jsonObject.getString("name")
                         userData.avatar = jsonObject.getString("avatar_url")

@@ -12,4 +12,6 @@
     <string name="company">company</string>
     <string name="at">\@%s</string>
     <string name="change_language_settings">Change Language</string>
+    <string name="followingtxt">following</string>
+    <string name="followertxt">followers</string>
 </resources>
