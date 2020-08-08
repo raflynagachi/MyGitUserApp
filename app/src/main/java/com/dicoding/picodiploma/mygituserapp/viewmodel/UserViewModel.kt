@@ -10,6 +10,7 @@ import com.androidnetworking.AndroidNetworking
 import com.androidnetworking.error.ANError
 import com.androidnetworking.interfaces.JSONArrayRequestListener
 import com.androidnetworking.interfaces.JSONObjectRequestListener
+import com.dicoding.picodiploma.mygituserapp.BuildConfig
 import com.dicoding.picodiploma.mygituserapp.model.User
 import org.json.JSONArray
 import org.json.JSONObject
@@ -18,6 +19,7 @@ class UserViewModel: ViewModel() {
 
     companion object{
         val TAG = UserViewModel::class.java.simpleName
+        val API_KEY = BuildConfig.API_KEY
     }
 
     private val listUserMutable = MutableLiveData<ArrayList<User>>()
@@ -29,7 +31,7 @@ class UserViewModel: ViewModel() {
 
     fun getDataUser(context: Context){
         AndroidNetworking.get("https://api.github.com/users")
-            .addHeaders("Authorization", "token 5922eb9b74f4813d413a5a3ae564416e8cca7d4c")
+            .addHeaders("Authorization", "token $API_KEY")
             .build()
             .getAsJSONArray(object : JSONArrayRequestListener {
                 override fun onResponse(response: JSONArray) {
@@ -67,7 +69,7 @@ class UserViewModel: ViewModel() {
     fun getDataUserSearch(query: String,context: Context){
         AndroidNetworking.get("https://api.github.com/search/users?q={username}")
             .addPathParameter("username", query)
-            .addHeaders("Authorization", "token 5922eb9b74f4813d413a5a3ae564416e8cca7d4c")
+            .addHeaders("Authorization", "token $API_KEY")
             .build()
             .getAsJSONObject(object : JSONObjectRequestListener {
                 override fun onResponse(response: JSONObject) {
@@ -107,7 +109,7 @@ class UserViewModel: ViewModel() {
     private fun getDataUserDetail(username: String, context: Context) {
         AndroidNetworking.get("https://api.github.com/users/{username}")
             .addPathParameter("username", username)
-            .addHeaders("Authorization", "token 5922eb9b74f4813d413a5a3ae564416e8cca7d4c")
+            .addHeaders("Authorization", "token $API_KEY")
             .build()
             .getAsJSONObject(object : JSONObjectRequestListener {
                 override fun onResponse(response: JSONObject) {

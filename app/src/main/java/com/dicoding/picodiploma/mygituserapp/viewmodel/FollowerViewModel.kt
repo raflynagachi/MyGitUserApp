@@ -7,6 +7,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.androidnetworking.AndroidNetworking
+import com.androidnetworking.BuildConfig
 import com.androidnetworking.error.ANError
 import com.androidnetworking.interfaces.JSONArrayRequestListener
 import com.androidnetworking.interfaces.JSONObjectRequestListener
@@ -29,7 +30,7 @@ class FollowerViewModel : ViewModel(){
     fun getDataUser(context: Context, id: String){
         AndroidNetworking.get("https://api.github.com/users/{id}/followers")
             .addPathParameter("id", id)
-            .addHeaders("Authorization", "token 5922eb9b74f4813d413a5a3ae564416e8cca7d4c")
+            .addHeaders("Authorization", "token ${UserViewModel.API_KEY}")
             .build()
             .getAsJSONArray(object : JSONArrayRequestListener {
                 override fun onResponse(response: JSONArray) {
@@ -66,7 +67,7 @@ class FollowerViewModel : ViewModel(){
     private fun getDataUserDetail(username: String, context: Context) {
         AndroidNetworking.get("https://api.github.com/users/{username}")
             .addPathParameter("username", username)
-            .addHeaders("Authorization", "token 5922eb9b74f4813d413a5a3ae564416e8cca7d4c")
+            .addHeaders("Authorization", "token $UserViewModel.API_KEY")
             .build()
             .getAsJSONObject(object : JSONObjectRequestListener {
                 override fun onResponse(response: JSONObject) {

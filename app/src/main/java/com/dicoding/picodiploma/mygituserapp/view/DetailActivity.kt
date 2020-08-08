@@ -13,6 +13,8 @@ class DetailActivity : AppCompatActivity() {
 
     companion object{
         const val EXTRA_DETAIL = "extra_detail"
+        const val IMG_HEIGHT = 130
+        const val IMG_WIDTH = 150
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,7 +33,9 @@ class DetailActivity : AppCompatActivity() {
         val dataUser = intent.getParcelableExtra(EXTRA_DETAIL) as User
         Glide.with(this)
             .load(dataUser.avatar)
-            .apply(RequestOptions().override(150, 130))
+            .apply(RequestOptions().override(IMG_WIDTH, IMG_HEIGHT))
+            .placeholder(R.drawable.baseline_account_circle_black_24)
+            .error(R.drawable.baseline_broken_image_black_24)
             .into(img_detail_profile)
         tv_detail_fullname.text = dataUser.fullname
         tv_detail_username.text = getString(R.string.at, dataUser.username)

@@ -14,6 +14,11 @@ import kotlinx.android.synthetic.main.card_item.view.*
 
 class ListUserAdapter(private val listUser: ArrayList<User>) : RecyclerView.Adapter<ListUserAdapter.ListViewHolder>() {
 
+    companion object{
+        const val IMG_WIDTH = 100
+        const val IMG_HEIGHT = 100
+    }
+
     fun setData(items: ArrayList<User>) {
         listUser.clear()
         listUser.addAll(items)
@@ -55,7 +60,9 @@ class ListUserAdapter(private val listUser: ArrayList<User>) : RecyclerView.Adap
             with(itemView){
                 Glide.with(itemView.context)
                     .load(user.avatar)
-                    .apply(RequestOptions().override(100,100))
+                    .apply(RequestOptions().override(IMG_WIDTH, IMG_HEIGHT))
+                    .placeholder(R.drawable.baseline_account_circle_black_24)
+                    .error(R.drawable.baseline_broken_image_black_24)
                     .into(img_profile)
 
                 tv_fullname.text = user.fullname
