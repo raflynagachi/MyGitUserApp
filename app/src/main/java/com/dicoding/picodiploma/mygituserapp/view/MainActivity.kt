@@ -75,12 +75,6 @@ class MainActivity : AppCompatActivity() {
                 val mIntent = Intent(Settings.ACTION_LOCALE_SETTINGS)
                 startActivity(mIntent)
             }
-            R.id.refresh -> {
-                listDataUser.clear()
-                viewConfig()
-                runGetDataGit()
-                configMainViewModel(listAdapter)
-            }
         }
         return super.onOptionsItemSelected(item)
     }

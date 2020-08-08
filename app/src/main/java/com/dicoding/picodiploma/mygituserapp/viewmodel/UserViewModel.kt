@@ -29,7 +29,7 @@ class UserViewModel: ViewModel() {
 
     fun getDataUser(context: Context){
         AndroidNetworking.get("https://api.github.com/users")
-            .addHeaders("Authorization", "token 0fde5fe4fa99df9cfa2d05e0e9085f66f7806922")
+            .addHeaders("Authorization", "token 5922eb9b74f4813d413a5a3ae564416e8cca7d4c")
             .build()
             .getAsJSONArray(object : JSONArrayRequestListener {
                 override fun onResponse(response: JSONArray) {
@@ -39,6 +39,7 @@ class UserViewModel: ViewModel() {
                             val username = response.getJSONObject(i).getString("login")
                             getDataUserDetail(username, context)
                         }
+                        Toast.makeText(context, "Parsing JSON done", Toast.LENGTH_SHORT).show()
                     }catch (e: Exception){
                         Toast.makeText(context, e.message, Toast.LENGTH_SHORT).show()
                         e.printStackTrace()
@@ -66,7 +67,7 @@ class UserViewModel: ViewModel() {
     fun getDataUserSearch(query: String,context: Context){
         AndroidNetworking.get("https://api.github.com/search/users?q={username}")
             .addPathParameter("username", query)
-            .addHeaders("Authorization", "token 0fde5fe4fa99df9cfa2d05e0e9085f66f7806922")
+            .addHeaders("Authorization", "token 5922eb9b74f4813d413a5a3ae564416e8cca7d4c")
             .build()
             .getAsJSONObject(object : JSONObjectRequestListener {
                 override fun onResponse(response: JSONObject) {
@@ -78,6 +79,7 @@ class UserViewModel: ViewModel() {
                             val username = jsonArray.getJSONObject(i).getString("login")
                             getDataUserDetail(username, context)
                         }
+                        Toast.makeText(context, "Parsing JSON done", Toast.LENGTH_SHORT).show()
                     }catch (e: Exception){
                         Toast.makeText(context, e.message, Toast.LENGTH_SHORT).show()
                         e.printStackTrace()
@@ -105,7 +107,7 @@ class UserViewModel: ViewModel() {
     private fun getDataUserDetail(username: String, context: Context) {
         AndroidNetworking.get("https://api.github.com/users/{username}")
             .addPathParameter("username", username)
-            .addHeaders("Authorization", "token 0fde5fe4fa99df9cfa2d05e0e9085f66f7806922")
+            .addHeaders("Authorization", "token 5922eb9b74f4813d413a5a3ae564416e8cca7d4c")
             .build()
             .getAsJSONObject(object : JSONObjectRequestListener {
                 override fun onResponse(response: JSONObject) {

@@ -53,6 +53,7 @@ class FollowerFragment : Fragment() {
                 showLoading(false)
             }
         })
+
     }
 
     private fun configRv() {
