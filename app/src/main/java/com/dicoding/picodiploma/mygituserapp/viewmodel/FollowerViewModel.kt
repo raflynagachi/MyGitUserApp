@@ -7,10 +7,10 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.androidnetworking.AndroidNetworking
-import com.androidnetworking.BuildConfig
 import com.androidnetworking.error.ANError
 import com.androidnetworking.interfaces.JSONArrayRequestListener
 import com.androidnetworking.interfaces.JSONObjectRequestListener
+import com.dicoding.picodiploma.mygituserapp.BuildConfig
 import com.dicoding.picodiploma.mygituserapp.model.Follower
 import org.json.JSONArray
 import org.json.JSONObject
@@ -18,6 +18,7 @@ import org.json.JSONObject
 class FollowerViewModel : ViewModel(){
     companion object{
         val TAG = FollowerViewModel::class.java.simpleName
+        const val API_KEY = BuildConfig.API_KEY
     }
 
     private val listUserMutable = MutableLiveData<ArrayList<Follower>>()
@@ -30,7 +31,7 @@ class FollowerViewModel : ViewModel(){
     fun getDataUser(context: Context, id: String){
         AndroidNetworking.get("https://api.github.com/users/{id}/followers")
             .addPathParameter("id", id)
-            .addHeaders("Authorization", "token ${UserViewModel.API_KEY}")
+            .addHeaders("Authorization", "token ${API_KEY}")
             .build()
             .getAsJSONArray(object : JSONArrayRequestListener {
                 override fun onResponse(response: JSONArray) {
@@ -67,7 +68,7 @@ class FollowerViewModel : ViewModel(){
     private fun getDataUserDetail(username: String, context: Context) {
         AndroidNetworking.get("https://api.github.com/users/{username}")
             .addPathParameter("username", username)
-            .addHeaders("Authorization", "token $UserViewModel.API_KEY")
+            .addHeaders("Authorization", "token $API_KEY")
             .build()
             .getAsJSONObject(object : JSONObjectRequestListener {
                 override fun onResponse(response: JSONObject) {

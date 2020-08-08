@@ -19,7 +19,7 @@ class UserViewModel: ViewModel() {
 
     companion object{
         val TAG = UserViewModel::class.java.simpleName
-        val API_KEY = BuildConfig.API_KEY
+        const val API_KEY = BuildConfig.API_KEY
     }
 
     private val listUserMutable = MutableLiveData<ArrayList<User>>()
