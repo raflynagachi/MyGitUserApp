@@ -29,7 +29,7 @@ class UserViewModel: ViewModel() {
 
     fun getDataUser(context: Context){
         AndroidNetworking.get("https://api.github.com/users")
-            .addHeaders("Authorization", "5fc0d6c7685604066e7e40b8706d6e9b108a97ff")
+            .addHeaders("Authorization", "token 0fde5fe4fa99df9cfa2d05e0e9085f66f7806922")
             .build()
             .getAsJSONArray(object : JSONArrayRequestListener {
                 override fun onResponse(response: JSONArray) {
@@ -58,14 +58,15 @@ class UserViewModel: ViewModel() {
                         // error.getErrorDetail() : connectionError, parseError, requestCancelledError
                         Log.d(TAG, "onError errorDetail : " + error.errorDetail)
                     }
-                    Toast.makeText(context, error?.message, Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context, error?.errorDetail, Toast.LENGTH_SHORT).show()
                 }
             })
     }
 
     fun getDataUserSearch(query: String,context: Context){
-        AndroidNetworking.get("https://api.github.com/users?q=$query")
-            .addHeaders("Authorization", "5fc0d6c7685604066e7e40b8706d6e9b108a97ff")
+        AndroidNetworking.get("https://api.github.com/search/users?q={username}")
+            .addPathParameter("username", query)
+            .addHeaders("Authorization", "token 0fde5fe4fa99df9cfa2d05e0e9085f66f7806922")
             .build()
             .getAsJSONObject(object : JSONObjectRequestListener {
                 override fun onResponse(response: JSONObject) {
@@ -96,14 +97,15 @@ class UserViewModel: ViewModel() {
                         // error.getErrorDetail() : connectionError, parseError, requestCancelledError
                         Log.d(TAG, "onError errorDetail : " + error.errorDetail)
                     }
-                    Toast.makeText(context, error?.message, Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context, error?.errorDetail, Toast.LENGTH_SHORT).show()
                 }
             })
     }
 
     private fun getDataUserDetail(username: String, context: Context) {
-        AndroidNetworking.get("https://api.github.com/users/$username")
-            .addHeaders("Authorization", "5fc0d6c7685604066e7e40b8706d6e9b108a97ff")
+        AndroidNetworking.get("https://api.github.com/users/{username}")
+            .addPathParameter("username", username)
+            .addHeaders("Authorization", "token 0fde5fe4fa99df9cfa2d05e0e9085f66f7806922")
             .build()
             .getAsJSONObject(object : JSONObjectRequestListener {
                 override fun onResponse(response: JSONObject) {
@@ -140,7 +142,7 @@ class UserViewModel: ViewModel() {
                         // error.getErrorDetail() : connectionError, parseError, requestCancelledError
                         Log.d(TAG, "onError errorDetail : " + error.errorDetail)
                     }
-                    Toast.makeText(context, error?.message, Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context, error?.errorDetail, Toast.LENGTH_SHORT).show()
                 }
             })
     }

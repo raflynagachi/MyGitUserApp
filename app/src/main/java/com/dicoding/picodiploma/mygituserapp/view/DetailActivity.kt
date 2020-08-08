@@ -22,6 +22,7 @@ class DetailActivity : AppCompatActivity() {
         if (supportActionBar != null) {
             supportActionBar?.title = "Detail User"
         }
+
         setData()
         viewPagerConfig()
     }

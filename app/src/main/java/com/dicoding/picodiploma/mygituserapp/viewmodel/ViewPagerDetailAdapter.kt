@@ -19,7 +19,6 @@ class ViewPagerDetailAdapter(private val mContext: Context, fm: FragmentManager)
     private val tabTitles = intArrayOf(
         R.string.followertxt,
         R.string.followingtxt
-
     )
 
     override fun getPageTitle(position: Int): CharSequence? {

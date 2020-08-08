@@ -3,12 +3,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/search"
-        android:icon="@drawable/baseline_search_black_24"
-        app:showAsAction="collapseActionView|always"
+        android:icon="@drawable/baseline_search_white_24"
+        app:showAsAction="always"
         app:actionViewClass="androidx.appcompat.widget.SearchView"
         android:title="@string/search" />
     <item
         android:id="@+id/action_change_settings"
         android:title="@string/change_language_settings"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/refresh"
+        android:title="@string/refresh"
         app:showAsAction="never"/>
 </menu>

@@ -62,19 +62,25 @@ class MainActivity : AppCompatActivity() {
                 }
                 return true
             }
-
             override fun onQueryTextChange(newText: String?): Boolean {
                 return false
             }
-
         })
         return true
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if (item.itemId == R.id.action_change_settings) {
-            val mIntent = Intent(Settings.ACTION_LOCALE_SETTINGS)
-            startActivity(mIntent)
+        when (item.itemId) {
+            R.id.action_change_settings -> {
+                val mIntent = Intent(Settings.ACTION_LOCALE_SETTINGS)
+                startActivity(mIntent)
+            }
+            R.id.refresh -> {
+                listDataUser.clear()
+                viewConfig()
+                runGetDataGit()
+                configMainViewModel(listAdapter)
+            }
         }
         return super.onOptionsItemSelected(item)
     }

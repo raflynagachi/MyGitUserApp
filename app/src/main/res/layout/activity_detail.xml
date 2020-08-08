@@ -26,7 +26,7 @@
                 android:layout_height="150dp"
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="28dp"
+                android:layout_marginTop="16dp"
                 app:civ_border_width="1dp"
                 app:civ_border_color="@color/colorPrimary"
                 android:src="@color/colorAccent" />
@@ -57,7 +57,7 @@
                         android:id="@+id/tv_detail_fullname"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="16dp"
+                        android:layout_marginTop="8dp"
                         android:gravity="center"
                         android:text="@string/fullname"
                         android:textSize="20sp"
@@ -68,7 +68,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
-                        android:layout_marginBottom="14dp"
+                        android:layout_marginBottom="8dp"
                         android:gravity="center"
                         android:textSize="14sp"
                         android:text="@string/username"/>
@@ -77,7 +77,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
-                        android:padding="8dp"
+                        android:padding="4dp"
                         tools:ignore="UseCompoundDrawables">
                         <ImageView
                             android:layout_width="24dp"
@@ -88,7 +88,7 @@
                             android:id="@+id/tv_detail_location"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:gravity="center"
+                            android:layout_gravity="center"
                             android:layout_marginStart="8dp"
                             android:text="@string/location"/>
                     </LinearLayout>
@@ -97,7 +97,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
-                        android:padding="8dp"
+                        android:padding="4dp"
                         tools:ignore="UseCompoundDrawables">
                         <ImageView
                             android:layout_width="24dp"
@@ -108,7 +108,7 @@
                             android:id="@+id/tv_detail_company"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:gravity="center"
+                            android:layout_gravity="center"
                             android:layout_marginStart="8dp"
                             android:text="@string/company"/>
                     </LinearLayout>
@@ -118,26 +118,29 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="12dp"
+                        android:layout_marginTop="4dp"
                         android:background="@drawable/bg_tv_repo"
                         android:text="@string/repository"/>
-
-                    <TextView
-                        android:id="@+id/tv_detail_follower"
+                    <RelativeLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="12dp"
-                        android:layout_marginTop="12dp"
-                        android:background="@drawable/bg_tv_follower"
-                        android:text="@string/follower"/>
+                        android:padding="12dp">
+                        <TextView
+                            android:id="@+id/tv_detail_follower"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bg_tv_follower"
+                            android:text="@string/follower"/>
 
-                    <TextView
-                        android:id="@+id/tv_detail_following"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="6dp"
-                        android:layout_marginStart="12dp"
-                        android:background="@drawable/bg_tv_following"
-                        android:text="@string/following"/>
+                        <TextView
+                            android:id="@+id/tv_detail_following"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="12dp"
+                            android:layout_toEndOf="@id/tv_detail_follower"
+                            android:background="@drawable/bg_tv_following"
+                            android:text="@string/following" />
+                    </RelativeLayout>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
@@ -157,7 +160,7 @@
             <androidx.viewpager.widget.ViewPager
                 android:id="@+id/viewpager"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="250dp"
                 android:layout_below="@id/tabs" />
         </RelativeLayout>
     </ScrollView>
