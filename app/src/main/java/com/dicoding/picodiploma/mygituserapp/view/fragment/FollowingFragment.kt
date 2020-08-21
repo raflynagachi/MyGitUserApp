@@ -1,11 +1,10 @@
-package com.dicoding.picodiploma.mygituserapp.view
+package com.dicoding.picodiploma.mygituserapp.view.fragment
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -13,7 +12,7 @@ import com.dicoding.picodiploma.mygituserapp.R
 import com.dicoding.picodiploma.mygituserapp.model.Following
 import com.dicoding.picodiploma.mygituserapp.model.User
 import com.dicoding.picodiploma.mygituserapp.viewmodel.FollowingViewModel
-import com.dicoding.picodiploma.mygituserapp.viewmodel.ListFollowingAdapter
+import com.dicoding.picodiploma.mygituserapp.viewmodel.adapter.ListFollowingAdapter
 import kotlinx.android.synthetic.main.fragment_follower.*
 
 class FollowingFragment : Fragment() {
@@ -37,7 +36,10 @@ class FollowingFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        adapter = ListFollowingAdapter(listData)
+        adapter =
+            ListFollowingAdapter(
+                listData
+            )
         followingViewModel = ViewModelProvider(
             this, ViewModelProvider.NewInstanceFactory()
         ).get(FollowingViewModel::class.java)

@@ -1,4 +1,4 @@
-package com.dicoding.picodiploma.mygituserapp.viewmodel
+package com.dicoding.picodiploma.mygituserapp.viewmodel.adapter
 
 import android.content.Intent
 import android.view.LayoutInflater
@@ -60,9 +60,12 @@ class ListUserAdapter(private val listUser: ArrayList<User>) : RecyclerView.Adap
             with(itemView){
                 Glide.with(itemView.context)
                     .load(user.avatar)
-                    .apply(RequestOptions().override(IMG_WIDTH, IMG_HEIGHT))
-                    .placeholder(R.drawable.baseline_account_circle_black_24)
-                    .error(R.drawable.baseline_broken_image_black_24)
+                    .apply(RequestOptions().override(
+                        IMG_WIDTH,
+                        IMG_HEIGHT
+                    ))
+                    .placeholder(R.drawable.baseline_account_circle_black_48)
+                    .error(R.drawable.baseline_broken_image_black_48)
                     .into(img_profile)
 
                 tv_fullname.text = user.fullname

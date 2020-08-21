@@ -6,7 +6,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.dicoding.picodiploma.mygituserapp.R
 import com.dicoding.picodiploma.mygituserapp.model.User
-import com.dicoding.picodiploma.mygituserapp.viewmodel.ViewPagerDetailAdapter
+import com.dicoding.picodiploma.mygituserapp.viewmodel.adapter.ViewPagerDetailAdapter
 import kotlinx.android.synthetic.main.activity_detail.*
 
 class DetailActivity : AppCompatActivity() {
@@ -34,8 +34,8 @@ class DetailActivity : AppCompatActivity() {
         Glide.with(this)
             .load(dataUser.avatar)
             .apply(RequestOptions().override(IMG_WIDTH, IMG_HEIGHT))
-            .placeholder(R.drawable.baseline_account_circle_black_24)
-            .error(R.drawable.baseline_broken_image_black_24)
+            .placeholder(R.drawable.baseline_account_circle_black_48)
+            .error(R.drawable.baseline_broken_image_black_48)
             .into(img_detail_profile)
         tv_detail_fullname.text = dataUser.fullname
         tv_detail_username.text = getString(R.string.at, dataUser.username)
@@ -47,7 +47,11 @@ class DetailActivity : AppCompatActivity() {
     }
 
     private fun viewPagerConfig() {
-        val viewPagerDetail = ViewPagerDetailAdapter(this, supportFragmentManager)
+        val viewPagerDetail =
+            ViewPagerDetailAdapter(
+                this,
+                supportFragmentManager
+            )
         viewpager.adapter = viewPagerDetail
         tabs.setupWithViewPager(viewpager)
         supportActionBar?.elevation = 0f

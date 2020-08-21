@@ -16,7 +16,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.dicoding.picodiploma.mygituserapp.R
 import com.dicoding.picodiploma.mygituserapp.model.User
-import com.dicoding.picodiploma.mygituserapp.viewmodel.ListUserAdapter
+import com.dicoding.picodiploma.mygituserapp.viewmodel.adapter.ListUserAdapter
 import com.dicoding.picodiploma.mygituserapp.viewmodel.UserViewModel
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -30,7 +30,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        listAdapter = ListUserAdapter(listDataUser)
+        listAdapter =
+            ListUserAdapter(
+                listDataUser
+            )
         mainViewModel = ViewModelProvider(
             this,
             ViewModelProvider.NewInstanceFactory()

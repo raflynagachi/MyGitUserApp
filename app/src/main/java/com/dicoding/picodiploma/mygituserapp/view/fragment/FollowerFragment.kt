@@ -1,4 +1,4 @@
-package com.dicoding.picodiploma.mygituserapp.view
+package com.dicoding.picodiploma.mygituserapp.view.fragment
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -12,7 +12,7 @@ import com.dicoding.picodiploma.mygituserapp.R
 import com.dicoding.picodiploma.mygituserapp.model.Follower
 import com.dicoding.picodiploma.mygituserapp.model.User
 import com.dicoding.picodiploma.mygituserapp.viewmodel.FollowerViewModel
-import com.dicoding.picodiploma.mygituserapp.viewmodel.ListFollowerAdapter
+import com.dicoding.picodiploma.mygituserapp.viewmodel.adapter.ListFollowerAdapter
 import kotlinx.android.synthetic.main.fragment_follower.*
 
 class FollowerFragment : Fragment() {
@@ -36,7 +36,10 @@ class FollowerFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        adapter = ListFollowerAdapter(listData)
+        adapter =
+            ListFollowerAdapter(
+                listData
+            )
         followerViewModel = ViewModelProvider(
             this, ViewModelProvider.NewInstanceFactory()
         ).get(FollowerViewModel::class.java)

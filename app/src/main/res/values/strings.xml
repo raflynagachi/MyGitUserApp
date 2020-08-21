@@ -14,4 +14,5 @@
     <string name="change_language_settings">Ganti Bahasa</string>
     <string name="followingtxt">mengikuti</string>
     <string name="followertxt">pengikut</string>
+    <string name="fab_fav">favorite button</string>
 </resources>

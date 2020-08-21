@@ -1,167 +1,185 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".view.DetailActivity">
-
-    <ScrollView
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout_detail"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:fillViewport="true"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-        <RelativeLayout
+        android:layout_height="match_parent">
+
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="16dp">
-
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/img_detail_profile"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="16dp"
-                app:civ_border_width="1dp"
-                app:civ_border_color="@color/colorPrimary"
-                android:src="@color/colorAccent" />
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cardView"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:fillViewport="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/img_detail_profile"
-                android:layout_marginStart="8dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginTop="12dp"
-                android:layout_marginBottom="12dp"
-                android:padding="8dp"
-                app:cardCornerRadius="8dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                android:padding="16dp">
 
-                <LinearLayout
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/img_detail_profile"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="16dp"
+                    app:civ_border_width="1dp"
+                    app:civ_border_color="@color/colorPrimary"
+                    android:src="@color/colorAccent" />
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="8dp">
-
-                    <TextView
-                        android:id="@+id/tv_detail_fullname"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:gravity="center"
-                        android:text="@string/fullname"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/tv_detail_username"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:layout_marginBottom="8dp"
-                        android:gravity="center"
-                        android:textSize="14sp"
-                        android:text="@string/username"/>
+                    android:layout_below="@id/img_detail_profile"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginBottom="12dp"
+                    android:padding="8dp"
+                    app:cardCornerRadius="8dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:padding="4dp"
-                        tools:ignore="UseCompoundDrawables">
-                        <ImageView
-                            android:layout_width="24dp"
-                            android:layout_height="24dp"
-                            android:src="@drawable/baseline_location_on_black_24"
-                            android:contentDescription="@string/location" />
-                        <TextView
-                            android:id="@+id/tv_detail_location"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_marginStart="8dp"
-                            android:text="@string/location"/>
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:padding="4dp"
-                        tools:ignore="UseCompoundDrawables">
-                        <ImageView
-                            android:layout_width="24dp"
-                            android:layout_height="24dp"
-                            android:src="@drawable/baseline_business_black_24"
-                            android:contentDescription="@string/company" />
-                        <TextView
-                            android:id="@+id/tv_detail_company"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_marginStart="8dp"
-                            android:text="@string/company"/>
-                    </LinearLayout>
-
-                    <TextView
-                        android:id="@+id/tv_detail_repository"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="12dp"
-                        android:layout_marginTop="4dp"
-                        android:background="@drawable/bg_tv_repo"
-                        android:text="@string/repository"/>
-                    <RelativeLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:padding="12dp">
-                        <TextView
-                            android:id="@+id/tv_detail_follower"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:background="@drawable/bg_tv_follower"
-                            android:text="@string/follower"/>
+                        android:orientation="vertical"
+                        android:padding="8dp">
 
                         <TextView
-                            android:id="@+id/tv_detail_following"
+                            android:id="@+id/tv_detail_fullname"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:gravity="center"
+                            android:text="@string/fullname"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tv_detail_username"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:layout_marginBottom="8dp"
+                            android:gravity="center"
+                            android:textSize="14sp"
+                            android:text="@string/username"/>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:padding="4dp"
+                            tools:ignore="UseCompoundDrawables">
+                            <ImageView
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:src="@drawable/baseline_location_on_black_24"
+                                android:contentDescription="@string/location" />
+                            <TextView
+                                android:id="@+id/tv_detail_location"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginStart="8dp"
+                                android:text="@string/location"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:padding="4dp"
+                            tools:ignore="UseCompoundDrawables">
+                            <ImageView
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:src="@drawable/baseline_business_black_24"
+                                android:contentDescription="@string/company" />
+                            <TextView
+                                android:id="@+id/tv_detail_company"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginStart="8dp"
+                                android:text="@string/company"/>
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/tv_detail_repository"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="12dp"
-                            android:layout_toEndOf="@id/tv_detail_follower"
-                            android:background="@drawable/bg_tv_following"
-                            android:text="@string/following" />
-                    </RelativeLayout>
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
+                            android:layout_marginTop="4dp"
+                            android:background="@drawable/bg_tv_repo"
+                            android:text="@string/repository"/>
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="12dp">
+                            <TextView
+                                android:id="@+id/tv_detail_follower"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/bg_tv_follower"
+                                android:text="@string/follower"/>
 
-            <com.google.android.material.tabs.TabLayout
-                android:id="@+id/tabs"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/cardView"
-                android:background="@color/colorPrimary"
-                android:minHeight="?actionBarSize"
-                app:tabIndicatorFullWidth="false"
-                app:tabIndicatorHeight="2dp"
-                app:tabMode="fixed"
-                app:tabRippleColor="@null"
-                app:tabTextColor="@android:color/white"/>
+                            <TextView
+                                android:id="@+id/tv_detail_following"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="12dp"
+                                android:layout_toEndOf="@id/tv_detail_follower"
+                                android:background="@drawable/bg_tv_following"
+                                android:text="@string/following" />
+                        </RelativeLayout>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
 
-            <androidx.viewpager.widget.ViewPager
-                android:id="@+id/viewpager"
-                android:layout_width="match_parent"
-                android:layout_height="250dp"
-                android:layout_below="@id/tabs" />
-        </RelativeLayout>
-    </ScrollView>
-</androidx.constraintlayout.widget.ConstraintLayout>
+                <com.google.android.material.tabs.TabLayout
+                    android:id="@+id/tabs"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/cardView"
+                    android:background="@color/colorPrimary"
+                    android:minHeight="?actionBarSize"
+                    app:tabIndicatorFullWidth="false"
+                    app:tabIndicatorHeight="2dp"
+                    app:tabMode="fixed"
+                    app:tabRippleColor="@null"
+                    app:tabTextColor="@android:color/white"/>
+
+                <androidx.viewpager.widget.ViewPager
+                    android:id="@+id/viewpager"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_below="@id/tabs" />
+            </RelativeLayout>
+        </ScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_fav"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:foregroundGravity="bottom"
+        app:fabSize="normal"
+        android:backgroundTint="#FF669B"
+        android:contentDescription="@string/fab_fav"
+        app:layout_anchorGravity="bottom|end"
+        app:layout_anchor="@id/layout_detail"
+        app:srcCompat="@drawable/baseline_favorite_border_white_36"/>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
