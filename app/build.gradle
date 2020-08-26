@@ -10,6 +10,15 @@ android {
     compileSdkVersion 29
     buildToolsVersion "29.0.3"
 
+    compileOptions{
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions{
+        jvmTarget = "1.8"
+    }
+
     defaultConfig {
         applicationId "com.dicoding.picodiploma.mygituserapp"
         minSdkVersion 21
@@ -45,6 +54,7 @@ dependencies {
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'com.google.android.material:material:1.2.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
+    //noinspection LifecycleAnnotationProcessorWithJava8
     annotationProcessor 'androidx.lifecycle:lifecycle-compiler:2.2.0'
     implementation 'com.amitshekhar.android:android-networking:1.0.2'
 

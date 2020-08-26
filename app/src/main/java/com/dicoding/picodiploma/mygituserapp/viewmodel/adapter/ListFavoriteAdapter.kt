@@ -11,6 +11,7 @@ import com.bumptech.glide.request.RequestOptions
 import com.dicoding.picodiploma.mygituserapp.CustomItemClickListener
 import com.dicoding.picodiploma.mygituserapp.R
 import com.dicoding.picodiploma.mygituserapp.model.Favorite
+import com.dicoding.picodiploma.mygituserapp.model.User
 import com.dicoding.picodiploma.mygituserapp.view.DetailActivity
 import kotlinx.android.synthetic.main.card_item_minimize.view.*
 import kotlinx.android.synthetic.main.card_item_minimize.view.img_profile
@@ -28,22 +29,6 @@ class ListFavoriteAdapter(private val activity: Activity):
             this.listFavorite.addAll(listFavorite)
             notifyDataSetChanged()
         }
-
-    fun addItem(favorite: Favorite){
-        this.listFavorite.add(favorite)
-        notifyItemInserted(this.listFavorite.size - 1)
-    }
-
-    fun updateItem(position: Int, favorite: Favorite){
-        this.listFavorite[position] = favorite
-        notifyItemChanged(position, favorite)
-    }
-
-    fun removeItem(position: Int){
-        this.listFavorite.removeAt(position)
-        notifyItemRemoved(position)
-        notifyItemRangeRemoved(position, this.listFavorite.size)
-    }
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -79,8 +64,20 @@ class ListFavoriteAdapter(private val activity: Activity):
                 cv_item.setOnClickListener(CustomItemClickListener(adapterPosition,
                     object : CustomItemClickListener.OnItemClickCallback{
                         override fun onItemClicked(view: View, position: Int) {
-                            val intent = Intent(activity, DetailActivity::class.java)
-                            intent.putExtra(DetailActivity.EXTRA_DETAIL, favorite)
+                            val favoriteUser = listFavorite[position]
+                            val user = User(
+                                favoriteUser.fullname,
+                                favoriteUser.username,
+                                favoriteUser.avatar,
+                                favoriteUser.company,
+                                favoriteUser.location,
+                                favoriteUser.repository,
+                                favoriteUser.follower,
+                                favoriteUser.following
+                            )
+
+                            val intent = Intent(context, DetailActivity::class.java)
+                            intent.putExtra(DetailActivity.EXTRA_DETAIL, user)
                             context.startActivity(intent)
                         }
                     }))

@@ -5,7 +5,6 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.provider.Settings
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -48,6 +47,12 @@ class MainActivity : AppCompatActivity() {
         val inflater = menuInflater
         inflater.inflate(R.menu.option_menu, menu)
 
+        searchActionbar(menu)
+
+        return true
+    }
+
+    private fun searchActionbar(menu: Menu) {
         val searchManager = getSystemService(Context.SEARCH_SERVICE) as SearchManager
         val searchView = menu.findItem(R.id.search).actionView as SearchView
 
@@ -69,16 +74,20 @@ class MainActivity : AppCompatActivity() {
                 return false
             }
         })
-        return true
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.action_change_settings -> {
-                val mIntent = Intent(Settings.ACTION_LOCALE_SETTINGS)
+            R.id.more_settings -> {
+                val mIntent = Intent(this, SettingsActivity::class.java)
                 startActivity(mIntent)
             }
+            R.id.favorite ->{
+                val intent = Intent(this, FavoriteActivity::class.java)
+                startActivity(intent)
+            }
         }
+
         return super.onOptionsItemSelected(item)
     }
 

@@ -4,8 +4,8 @@ import android.content.ContentValues
 import android.content.Context
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
-import com.dicoding.picodiploma.mygituserapp.database.DatabaseContract.NoteColumns.Companion.TABLE_NAME
-import com.dicoding.picodiploma.mygituserapp.database.DatabaseContract.NoteColumns.Companion.USERNAME
+import com.dicoding.picodiploma.mygituserapp.database.DatabaseContract.FavoriteColumns.Companion.TABLE_NAME
+import com.dicoding.picodiploma.mygituserapp.database.DatabaseContract.FavoriteColumns.Companion.USERNAME
 import java.sql.SQLException
 
 class UserHelper(context: Context) {

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/setting_menu"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <Button
+        android:id="@+id/change_language"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?android:attr/selectableItemBackground"
+        android:drawableEnd="@drawable/baseline_language_black_24"
+        android:textAlignment="textStart"
+        android:textAllCaps="false"
+        android:text="@string/change_language_settings"
+        android:textSize="16sp"
+        android:textColor="@android:color/black"
+        android:padding="16dp"/>
+
+    <Switch
+        android:id="@+id/sw_daily"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:text="@string/daily_reminder"
+        android:textColor="@android:color/black"
+        android:textSize="16sp"
+        tools:ignore="UseSwitchCompatOrMaterialXml" />
+</LinearLayout>

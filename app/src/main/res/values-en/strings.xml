@@ -14,4 +14,11 @@
     <string name="change_language_settings">Change Language</string>
     <string name="followingtxt">following</string>
     <string name="followertxt">followers</string>
+    <string name="fab_fav">favorite button</string>
+    <string name="favorite">Favorite</string>
+    <string name="daily_reminder">Daily Reminder</string>
+    <string name="daily_reminder_activated">Pengingat harian diaktifkan</string>
+    <string name="daily_reminder_canceled">Pengingat harian dibatallkan</string>
+    <string name="settings">Settings</string>
+    <string name="daily_message">Lets use MyGitUser today</string>
 </resources>

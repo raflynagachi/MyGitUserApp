@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">MyGitUserApp</string>
-    <string name="search">cari</string>
+    <string name="search">Pencarian</string>
     <string name="search_hint">cari user…</string>
     <string name="fullname">nama lengkap</string>
     <string name="username">username</string>
@@ -14,5 +14,11 @@
     <string name="change_language_settings">Ganti Bahasa</string>
     <string name="followingtxt">mengikuti</string>
     <string name="followertxt">pengikut</string>
-    <string name="fab_fav">favorite button</string>
+    <string name="fab_fav">tombol favorit</string>
+    <string name="favorite">Favorit</string>
+    <string name="daily_reminder">Pengingat Harian</string>
+    <string name="daily_reminder_activated">Pengingat harian diaktifkan</string>
+    <string name="daily_reminder_canceled">Pengingat harian dibatallkan</string>
+    <string name="settings">Settings</string>
+    <string name="daily_message">Ayo buka aplikasi MyGithubUser hari ini</string>
 </resources>
