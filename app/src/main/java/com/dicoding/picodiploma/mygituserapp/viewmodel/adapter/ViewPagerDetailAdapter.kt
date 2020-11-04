@@ -1,12 +1,12 @@
-package com.dicoding.picodiploma.mygituserapp.viewmodel
+package com.dicoding.picodiploma.mygituserapp.viewmodel.adapter
 
 import android.content.Context
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import com.dicoding.picodiploma.mygituserapp.R
-import com.dicoding.picodiploma.mygituserapp.view.FollowerFragment
-import com.dicoding.picodiploma.mygituserapp.view.FollowingFragment
+import com.dicoding.picodiploma.mygituserapp.view.fragment.FollowerFragment
+import com.dicoding.picodiploma.mygituserapp.view.fragment.FollowingFragment
 
 class ViewPagerDetailAdapter(private val mContext: Context, fm: FragmentManager) :
     FragmentPagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
